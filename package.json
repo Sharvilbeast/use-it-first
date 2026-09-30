@@ -4,8 +4,11 @@
   "private": true,
   "description": "Production-grade household food expiry optimization and zero-waste kitchen management platform",
   "scripts": {
+    "dev": "node preview/server.js",
+    "start": "node preview/server.js",
+    "server": "npm run dev --prefix backend",
     "build:backend": "tsc -p backend/tsconfig.json",
-    "test": "echo \"Running test suites...\" && exit 0"
+    "test": "npm test --prefix backend"
   },
   "keywords": [
     "zero-waste",
