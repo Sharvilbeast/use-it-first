@@ -13,10 +13,9 @@ console.log('\x1b[32m%s\x1b[0m', '==============================================
 console.log('\x1b[90mStarting both servers concurrently... Press Ctrl+C to terminate both.\x1b[0m\n');
 
 // 1. Start Web Simulator
-const webProcess = spawn('node', ['preview/server.js'], {
+const webProcess = spawn(process.execPath, ['preview/server.js'], {
   cwd: rootDir,
   stdio: ['inherit', 'pipe', 'pipe'],
-  shell: true,
 });
 
 webProcess.stdout.on('data', (data) => {
@@ -31,10 +30,10 @@ webProcess.stderr.on('data', (data) => {
 });
 
 // 2. Start Backend API Server
-const backendProcess = spawn('npm', ['run', 'dev', '--prefix', 'backend'], {
+const npmBin = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+const backendProcess = spawn(npmBin, ['run', 'dev', '--prefix', 'backend'], {
   cwd: rootDir,
   stdio: ['inherit', 'pipe', 'pipe'],
-  shell: true,
 });
 
 backendProcess.stdout.on('data', (data) => {
