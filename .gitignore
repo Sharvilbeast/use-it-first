@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# TypeScript & Build outputs
+dist/
+dist-test/
+*/dist/
+*/dist-test/
+
+# Logs & Environment
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+*.env
+*.env.local

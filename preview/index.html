@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Use It First (UIF) — Household Food Expiry Optimizer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient Backdrop Glows -->
+  <div class="ambient-glow glow-blue"></div>
+  <div class="ambient-glow glow-emerald"></div>
+
+  <!-- Mobile Frame Simulator Wrapper -->
+  <div class="device-frame">
+    <!-- Phone Top Speaker & Dynamic Island -->
+    <div class="device-notch">
+      <div class="dynamic-island">
+        <span class="island-camera"></span>
+        <span class="island-sensor"></span>
+      </div>
+    </div>
+
+    <!-- Phone Status Bar (Modern iOS Vector Icons) -->
+    <div class="status-bar">
+      <span class="status-time">9:41</span>
+      <div class="status-icons">
+        <!-- Cellular Signal Bars -->
+        <svg class="status-svg" width="18" height="12" viewBox="0 0 18 12" fill="none" aria-label="Cellular Signal">
+          <rect x="0.5" y="8.5" width="2.5" height="3" rx="0.75" fill="currentColor"/>
+          <rect x="5" y="6" width="2.5" height="5.5" rx="0.75" fill="currentColor"/>
+          <rect x="9.5" y="3.5" width="2.5" height="8" rx="0.75" fill="currentColor"/>
+          <rect x="14" y="1" width="2.5" height="10.5" rx="0.75" fill="currentColor"/>
+        </svg>
+        <!-- Wi-Fi Waves -->
+        <svg class="status-svg" width="16" height="12" viewBox="0 0 16 12" fill="none" aria-label="Wi-Fi">
+          <path d="M8 10C8.55228 10 9 10.4477 9 11C9 11.5523 8.55228 12 8 12C7.44772 12 7 11.5523 7 11C7 10.4477 7.44772 10 8 10Z" fill="currentColor"/>
+          <path d="M4.5 7.5C6.433 5.8 9.567 5.8 11.5 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M1.5 4.5C5.08985 1.5 10.9101 1.5 14.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <!-- Modern Battery Pill -->
+        <div class="battery-indicator" aria-label="Battery 100%">
+          <span class="battery-percent">100%</span>
+          <svg class="status-svg battery-svg" width="24" height="12" viewBox="0 0 25 12" fill="none">
+            <rect x="0.75" y="0.75" width="20.5" height="10.5" rx="3.5" stroke="currentColor" stroke-width="1.2"/>
+            <rect x="2.5" y="2.5" width="17" height="7" rx="2" fill="currentColor"/>
+            <path d="M23 4.2C23.6 4.6 23.6 7.4 23 7.8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- App Viewport Container -->
+    <div class="app-viewport">
+
+      <!-- TOP BRAND HEADER (Matching Reference Luxury Style) -->
+      <header class="app-header">
+        <div class="header-left">
+          <h1 class="hero-headline">
+            Save Food.<br>
+            <span class="highlight-text">Waste Less.</span>
+          </h1>
+          <p class="hero-subline">Household Food Expiry Optimizer</p>
+        </div>
+
+        <div class="header-right">
+          <!-- Dark / Light Mode Theme Toggle -->
+          <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+            <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+
+          <!-- Official UIF Logo Icon Badge -->
+          <div class="brand-logo-badge" id="btnLogoModalTrigger" title="About Use It First (UIF)">
+            <img src="assets/uif-mark.svg" alt="UIF Logo" class="brand-logo-img">
+          </div>
+        </div>
+      </header>
+
+      <!-- TAB 1: LUXURY HERO CAROUSEL & SMART PANTRY (Active by default) -->
+      <main class="tab-content active" id="tabViewHome">
+        <div class="scrollable-content">
+
+          <!-- SECTION 1: URGENT ITEMS HERO CAROUSEL (Directly matching Ferrari / Rolex reference cards!) -->
+          <section class="carousel-section">
+            <div class="section-title-row">
+              <span class="section-label">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block; vertical-align:-1px; margin-right:4px;">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+                URGENT: RESCUE TODAY
+              </span>
+              <span class="section-counter" id="carouselCounter">1 of 3</span>
+            </div>
+
+            <!-- Swipeable Luxury Hero Card Container -->
+            <div class="cards-carousel" id="heroCardsCarousel">
+
+              <!-- CARD 1: FRESH ORGANIC MILK -->
+              <div class="hero-card active" data-index="0" data-item-id="item-1">
+                <!-- Top Orange Capsule Pill (Ticking Countdown Timer) -->
+                <div class="timer-pill">
+                  <svg class="pill-svg" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                  <span class="pill-text">Expires today in <strong class="ticking-countdown" id="cd1">04:12:36</strong></span>
+                </div>
+
+                <!-- Studio Isolated Product Render -->
+                <div class="card-hero-image-wrap">
+                  <img src="assets/milk.jpg" alt="Organic Fresh Milk" class="hero-product-img">
+                </div>
+
+                <!-- Frosted Glass Bottom Overlay Section -->
+                <div class="card-frosted-overlay">
+                  <div class="card-headline-row">
+                    <h2 class="card-item-title">Amul Taaza Milk 1L</h2>
+                    <span class="card-price-badge">₹68</span>
+                  </div>
+
+                  <!-- Tag Pills -->
+                  <div class="card-tags-row">
+                    <span class="tag-pill">Dairy</span>
+                    <span class="tag-pill">
+                      <svg class="pill-svg" viewBox="0 0 24 24" style="width:11px; height:11px; margin-right:3px;">
+                        <rect x="5" y="2" width="14" height="20" rx="3"/>
+                        <line x1="5" y1="10" x2="19" y2="10"/>
+                        <line x1="8" y1="6" x2="8" y2="8"/>
+                      </svg>
+                      Fridge
+                    </span>
+                    <span class="tag-pill opened-pill">Opened 2d ago</span>
+                  </div>
+
+                  <!-- Decay / Freshness Progress Bar -->
+                  <div class="card-progress-box">
+                    <div class="progress-labels">
+                      <span class="progress-title">15% Shelf Life Remaining</span>
+                      <span class="progress-ratio">₹68 at risk</span>
+                    </div>
+                    <div class="progress-track">
+                      <div class="progress-fill progress-urgent" style="width: 18%;"></div>
+                    </div>
+                    <div class="progress-metrics-row">
+                      <span class="metric-sub">Waste Avoidance Impact</span>
+                      <span class="metric-highlight">+100% Rescued</span>
+                    </div>
+                  </div>
+
+                  <!-- Big Primary CTA Pill Button -->
+                  <button class="card-primary-cta" onclick="quickCookCarouselItem('item-1', 'Amul Taaza Milk 1L')">
+                    Rescue in Recipe
+                  </button>
+                </div>
+              </div>
+
+              <!-- CARD 2: FRESH PANEER BLOCKS -->
+              <div class="hero-card" data-index="1" data-item-id="item-2">
+                <div class="timer-pill warning-pill">
+                  <svg class="pill-svg" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                  <span class="pill-text">Expires tomorrow in <strong class="ticking-countdown" id="cd2">22:45:10</strong></span>
+                </div>
+
+                <div class="card-hero-image-wrap">
+                  <img src="assets/paneer.jpg" alt="Fresh Paneer Cubes" class="hero-product-img">
+                </div>
+
+                <div class="card-frosted-overlay">
+                  <div class="card-headline-row">
+                    <h2 class="card-item-title">Artisan Paneer 200g</h2>
+                    <span class="card-price-badge">₹95</span>
+                  </div>
+
+                  <div class="card-tags-row">
+                    <span class="tag-pill">Dairy</span>
+                    <span class="tag-pill">
+                      <svg class="pill-svg" viewBox="0 0 24 24" style="width:11px; height:11px; margin-right:3px;">
+                        <rect x="5" y="2" width="14" height="20" rx="3"/>
+                        <line x1="5" y1="10" x2="19" y2="10"/>
+                      </svg>
+                      Fridge
+                    </span>
+                    <span class="tag-pill">Stored (Sealed)</span>
+                  </div>
+
+                  <div class="card-progress-box">
+                    <div class="progress-labels">
+                      <span class="progress-title">30% Shelf Life Remaining</span>
+                      <span class="progress-ratio">₹95 at risk</span>
+                    </div>
+                    <div class="progress-track">
+                      <div class="progress-fill progress-warning" style="width: 32%;"></div>
+                    </div>
+                    <div class="progress-metrics-row">
+                      <span class="metric-sub">Waste Avoidance Impact</span>
+                      <span class="metric-highlight">+100% Rescued</span>
+                    </div>
+                  </div>
+
+                  <button class="card-primary-cta" onclick="quickCookCarouselItem('item-2', 'Artisan Paneer 200g')">
+                    Rescue in Recipe
+                  </button>
+                </div>
+              </div>
+
+              <!-- CARD 3: ORGANIC SPINACH BUNDLE -->
+              <div class="hero-card" data-index="2" data-item-id="item-3">
+                <div class="timer-pill safe-pill">
+                  <svg class="pill-svg" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                  <span class="pill-text">Fresh for <strong class="ticking-countdown" id="cd3">3 Days 14h</strong></span>
+                </div>
+
+                <div class="card-hero-image-wrap">
+                  <img src="assets/spinach.jpg" alt="Organic Spinach" class="hero-product-img">
+                </div>
+
+                <div class="card-frosted-overlay">
+                  <div class="card-headline-row">
+                    <h2 class="card-item-title">Farm Spinach Bundle</h2>
+                    <span class="card-price-badge">₹35</span>
+                  </div>
+
+                  <div class="card-tags-row">
+                    <span class="tag-pill">Produce</span>
+                    <span class="tag-pill">
+                      <svg class="pill-svg" viewBox="0 0 24 24" style="width:11px; height:11px; margin-right:3px;">
+                        <rect x="5" y="2" width="14" height="20" rx="3"/>
+                        <line x1="5" y1="10" x2="19" y2="10"/>
+                      </svg>
+                      Fridge
+                    </span>
+                    <span class="tag-pill">Fresh Green</span>
+                  </div>
+
+                  <div class="card-progress-box">
+                    <div class="progress-labels">
+                      <span class="progress-title">65% Shelf Life Remaining</span>
+                      <span class="progress-ratio">Safe condition</span>
+                    </div>
+                    <div class="progress-track">
+                      <div class="progress-fill progress-safe" style="width: 65%;"></div>
+                    </div>
+                    <div class="progress-metrics-row">
+                      <span class="metric-sub">Waste Avoidance Impact</span>
+                      <span class="metric-highlight">Optimal Freshness</span>
+                    </div>
+                  </div>
+
+                  <button class="card-primary-cta" onclick="quickCookCarouselItem('item-3', 'Farm Spinach Bundle')">
+                    Cook in Recipe
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Carousel Pagination Dots (Matching Reference Images 2 & 3) -->
+            <div class="carousel-dots-row">
+              <span class="c-dot active" onclick="switchCarousel(0)"></span>
+              <span class="c-dot" onclick="switchCarousel(1)"></span>
+              <span class="c-dot" onclick="switchCarousel(2)"></span>
+            </div>
+          </section>
+
+          <!-- SECTION 2: LIVE SEARCH & SMART FILTER BARS -->
+          <section class="filters-section">
+            <div class="search-box">
+              <svg class="search-lens-svg" viewBox="0 0 24 24" fill="none">
+                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2.2"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              </svg>
+              <input type="text" id="searchInput" placeholder="Search groceries, milk, pantry..." autocomplete="off">
+              <button id="clearSearchBtn" class="clear-search-btn" style="display: none;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="18" y1="6" x2="6" y2="18"/>
+                  <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Tier 1: Location Tabs -->
+            <nav class="location-tabs-bar" id="locationTabsBar">
+              <button class="loc-tab active" data-loc="ALL">
+                <svg class="loc-svg" viewBox="0 0 24 24">
+                  <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+                  <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+                  <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+                  <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+                </svg>
+                <span class="loc-name">All Pantries</span>
+                <span class="loc-count" id="countLocAll">6</span>
+              </button>
+              <button class="loc-tab" data-loc="FRIDGE">
+                <svg class="loc-svg" viewBox="0 0 24 24">
+                  <rect x="5" y="2" width="14" height="20" rx="3"/>
+                  <line x1="5" y1="10" x2="19" y2="10"/>
+                  <line x1="8" y1="6" x2="8" y2="8"/>
+                  <line x1="8" y1="14" x2="8" y2="17"/>
+                </svg>
+                <span class="loc-name">Fridge</span>
+                <span class="loc-count" id="countLocFridge">4</span>
+              </button>
+              <button class="loc-tab" data-loc="PANTRY">
+                <svg class="loc-svg" viewBox="0 0 24 24">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <line x1="12" y1="4" x2="12" y2="20"/>
+                  <line x1="4" y1="12" x2="20" y2="12"/>
+                </svg>
+                <span class="loc-name">Kitchen</span>
+                <span class="loc-count" id="countLocPantry">1</span>
+              </button>
+              <button class="loc-tab" data-loc="FREEZER">
+                <svg class="loc-svg" viewBox="0 0 24 24">
+                  <path d="M12 2v20M17 5H7M19 12H5M17 19H7"/>
+                  <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                </svg>
+                <span class="loc-name">Freezer</span>
+                <span class="loc-count" id="countLocFreezer">1</span>
+              </button>
+            </nav>
+
+            <!-- Tier 2: State Lifecycle Filter Chips -->
+            <div class="state-chips-bar" id="stateChipsBar">
+              <button class="state-chip active" data-state="ALL">
+                <span>All Items</span>
+                <span class="chip-count" id="countStateAll">6</span>
+              </button>
+              <button class="state-chip" data-state="STORED">
+                <span>Stored (Unopened)</span>
+                <span class="chip-count" id="countStateStored">5</span>
+              </button>
+              <button class="state-chip" data-state="OPENED">
+                <span>Opened (Active)</span>
+                <span class="chip-count" id="countStateOpened">1</span>
+              </button>
+              <button class="state-chip" data-state="EXPIRED">
+                <span>Expired</span>
+                <span class="chip-count" id="countStateExpired">0</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- SECTION 3: VIRTUALIZED ITEMS LIST (Matching Image 5 List Cards) -->
+          <section class="inventory-section">
+            <div class="list-section-header">
+              <h3 class="section-title" id="listSectionTitle">Pantry Inventory</h3>
+              <span class="counter-label" id="listCounterLabel">Showing 6 items</span>
+            </div>
+
+            <div class="items-list" id="itemsListContainer">
+              <!-- Dynamically populated via JS -->
+            </div>
+
+            <div class="empty-state" id="emptyState" style="display: none;">
+              <div class="empty-emoji">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <line x1="12" y1="4" x2="12" y2="20"/>
+                  <line x1="4" y1="12" x2="20" y2="12"/>
+                </svg>
+              </div>
+              <p class="empty-title">No matching groceries found</p>
+              <p class="empty-sub">Tap the scanner to add new items from grocery bills.</p>
+            </div>
+          </section>
+
+        </div>
+      </main>
+
+      <!-- TAB 2: PORTFOLIO & FRESHNESS DONUT GAUGE (Matching Reference Image 5!) -->
+      <main class="tab-content" id="tabViewAnalytics">
+        <div class="scrollable-content">
+          <!-- Multi-Color Donut Gauge Card -->
+          <section class="donut-card">
+            <div class="donut-card-inner">
+              <span class="donut-title">Household Food Health</span>
+              <h2 class="donut-stat" id="donutSavedTotal">₹1,420.00</h2>
+              <span class="donut-sub">+12.8% Rescued this month</span>
+
+              <!-- SVG Segmented Donut Ring (Matching Image 5) -->
+              <div class="donut-ring-wrap">
+                <svg width="220" height="220" viewBox="0 0 200 200" class="donut-svg">
+                  <!-- Outer segmented arcs -->
+                  <circle cx="100" cy="100" r="75" stroke="#1E293B" stroke-width="16" fill="none" opacity="0.3" />
+                  <!-- Green arc: Later / Safe -->
+                  <circle cx="100" cy="100" r="75" stroke="#10B981" stroke-width="16" fill="none"
+                          stroke-dasharray="140 330" stroke-dashoffset="0" stroke-linecap="round" />
+                  <!-- Yellow arc: Warning -->
+                  <circle cx="100" cy="100" r="75" stroke="#F59E0B" stroke-width="16" fill="none"
+                          stroke-dasharray="90 380" stroke-dashoffset="-150" stroke-linecap="round" />
+                  <!-- Orange arc -->
+                  <circle cx="100" cy="100" r="75" stroke="#F97316" stroke-width="16" fill="none"
+                          stroke-dasharray="70 400" stroke-dashoffset="-250" stroke-linecap="round" />
+                  <!-- Red arc: Use Today -->
+                  <circle cx="100" cy="100" r="75" stroke="#EF4444" stroke-width="16" fill="none"
+                          stroke-dasharray="60 410" stroke-dashoffset="-330" stroke-linecap="round" />
+                </svg>
+
+                <div class="donut-center-info">
+                  <span class="donut-center-num" id="donutScoreNum">82</span>
+                  <span class="donut-center-label">Freshness Score</span>
+                </div>
+              </div>
+
+              <!-- Legend -->
+              <div class="donut-legend-row">
+                <span class="d-leg"><span class="d-dot red-dot"></span> Use Today (2)</span>
+                <span class="d-leg"><span class="d-dot amber-dot"></span> This Week (2)</span>
+                <span class="d-leg"><span class="d-dot green-dot"></span> Safe (2)</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Savings Breakdown List -->
+          <section class="analytics-cards-section">
+            <h3 class="section-title">Household Savings Breakdown</h3>
+            <div class="stat-card-row">
+              <div class="stat-box">
+                <span class="stat-num">₹2,840</span>
+                <span class="stat-lbl">Projected Savings</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-num">18.4 kg</span>
+                <span class="stat-lbl">CO₂e Avoided</span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <!-- TAB 3: ZERO-WASTE CHEF AI (Active via Bottom Nav or CTA) -->
+      <main class="tab-content" id="tabViewChef">
+        <div class="scrollable-content">
+          <section class="chef-tab-hero">
+            <div class="chef-tab-header">
+              <div class="chef-icon-bubble">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6v-7.13z"/>
+                  <line x1="6" y1="17" x2="18" y2="17"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="chef-tab-title">Zero-Waste Kitchen AI</h2>
+                <p class="chef-tab-sub">Auto-synthesizes recipes from expiring inventory</p>
+              </div>
+            </div>
+
+            <!-- Dietary Preference Filter Chips -->
+            <div class="diet-filter-scroll">
+              <button class="diet-chip active" data-diet="all" onclick="filterChefDiet('all')">All Diets</button>
+              <button class="diet-chip" data-diet="vegetarian" onclick="filterChefDiet('vegetarian')">Vegetarian</button>
+              <button class="diet-chip" data-diet="vegan" onclick="filterChefDiet('vegan')">Vegan</button>
+              <button class="diet-chip" data-diet="keto" onclick="filterChefDiet('keto')">Keto / Low-Carb</button>
+              <button class="diet-chip" data-diet="protein" onclick="filterChefDiet('protein')">High-Protein</button>
+              <button class="diet-chip" data-diet="glutenfree" onclick="filterChefDiet('glutenfree')">Gluten-Free</button>
+            </div>
+
+            <div class="recipe-hero-card">
+              <div class="rescue-score-badge">★ 94% Waste Rescue Score</div>
+              <h2 class="recipe-name" id="chefTabRecipeTitle">Quick Rescue Palak Paneer</h2>
+              <p class="recipe-desc" id="chefTabRecipeDesc">
+                A creamy, nutrient-dense 20-minute Palak Paneer utilizing your expiring milk, paneer, and fresh spinach.
+              </p>
+
+              <div class="recipe-stats-row">
+                <span class="r-stat">
+                  <svg class="stat-svg" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                  20 mins
+                </span>
+                <span class="r-stat">
+                  <svg class="stat-svg" viewBox="0 0 24 24">
+                    <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/>
+                  </svg>
+                  380 kcal
+                </span>
+                <span class="r-stat">
+                  <svg class="stat-svg" viewBox="0 0 24 24">
+                    <line x1="12" y1="1" x2="12" y2="23"/>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                  </svg>
+                  Saves ₹185 waste
+                </span>
+              </div>
+
+              <div class="recipe-section" style="margin-top: 14px;">
+                <h4 class="recipe-sec-head">Expiring Ingredients Rescued:</h4>
+                <div class="rescued-chips-list">
+                  <span class="r-chip urgent-chip">Milk (Expires Today)</span>
+                  <span class="r-chip urgent-chip">Paneer 200g (1d left)</span>
+                  <span class="r-chip warning-chip">Spinach (3d left)</span>
+                </div>
+              </div>
+
+              <div class="recipe-section" style="margin-top: 10px;">
+                <h4 class="recipe-sec-head">Step-by-Step Cooking Guide:</h4>
+                <ol class="steps-ol">
+                  <li>Blanch spinach in boiling salted water for 2 minutes; blend into a smooth green purée.</li>
+                  <li>Heat 1 tbsp cooking oil in a skillet; sauté cumin seeds, garlic, and sliced onions until golden.</li>
+                  <li>Pour in the spinach purée and simmer for 3 minutes on medium flame.</li>
+                  <li>Cube the paneer and gently fold into the warm gravy; cook for 2 minutes.</li>
+                  <li>Serve hot with warm roti, paratha, or steamed rice. Enjoy zero-waste dining!</li>
+                </ol>
+              </div>
+
+              <button class="cook-action-btn" id="btnChefTabCook" style="margin-top: 16px;">
+                ✓ Cook Recipe & Mark Ingredients Consumed
+              </button>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <!-- TAB 4: USER PROFILE & SUBSCRIPTIONS -->
+      <main class="tab-content" id="tabViewProfile">
+        <div class="scrollable-content">
+          <section class="profile-section">
+            <div class="profile-card">
+              <div class="profile-avatar">
+                <svg viewBox="0 0 24 24">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <h2 class="profile-name">Rohan Sharma</h2>
+              <p class="profile-email">rohan@useitfirst.app</p>
+              <div class="premium-badge-row">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" stroke="#F59E0B" style="margin-right: 5px;">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+                <span>UIF Premium Member (₹150/mo)</span>
+              </div>
+            </div>
+
+            <div class="settings-group">
+              <h3 class="settings-title">App Preferences</h3>
+              <div class="setting-item">
+                <span>Dietary Restrictions</span>
+                <span class="setting-val">Vegetarian</span>
+              </div>
+              <div class="setting-item">
+                <span>Evening Dinner Alert</span>
+                <span class="setting-val">05:30 PM</span>
+              </div>
+              <div class="setting-item">
+                <span>Household Sync</span>
+                <span class="setting-val">3 Members</span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <!-- FLOATING GLASSMORPHIC CAPSULE BOTTOM NAVIGATION BAR (Matching Reference Image 4!) -->
+      <nav class="floating-nav-bar">
+        <!-- Floating Glass Active Pill Indicator -->
+        <div class="nav-active-pill" id="navActivePill"></div>
+
+        <button class="nav-tab-btn active" data-tab="tabViewHome" onclick="switchNavTab('tabViewHome')" aria-label="Home">
+          <svg class="nav-svg" viewBox="0 0 24 24">
+            <path d="M3 10.5L12 3l9 7.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9.5z"/>
+            <path d="M9 22V12h6v10"/>
+          </svg>
+        </button>
+
+        <button class="nav-tab-btn" data-tab="tabViewAnalytics" onclick="switchNavTab('tabViewAnalytics')" aria-label="Analytics">
+          <svg class="nav-svg" viewBox="0 0 24 24">
+            <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
+            <path d="M22 12A10 10 0 0 0 12 2v10z"/>
+          </svg>
+        </button>
+
+        <!-- Center Scan Action Button (Prominent) -->
+        <button class="nav-tab-btn center-scan-btn" onclick="openScannerModal()" aria-label="Scan Receipt">
+          <svg class="nav-svg" viewBox="0 0 24 24">
+            <path d="M4 8V5a2 2 0 0 1 2-2h3"/>
+            <path d="M20 8V5a2 2 0 0 0-2-2h-3"/>
+            <path d="M4 16v3a2 2 0 0 0 2 2h3"/>
+            <path d="M20 16v3a2 2 0 0 1-2 2h-3"/>
+            <circle cx="12" cy="12" r="3.5"/>
+            <line x1="2" y1="12" x2="22" y2="12" stroke-dasharray="2 2" stroke-width="1.5"/>
+          </svg>
+        </button>
+
+        <button class="nav-tab-btn" data-tab="tabViewChef" onclick="switchNavTab('tabViewChef')" aria-label="AI Chef">
+          <svg class="nav-svg" viewBox="0 0 24 24">
+            <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6v-7.13z"/>
+            <line x1="6" y1="17" x2="18" y2="17"/>
+          </svg>
+        </button>
+
+        <button class="nav-tab-btn" data-tab="tabViewProfile" onclick="switchNavTab('tabViewProfile')" aria-label="Profile">
+          <svg class="nav-svg" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- =====================================================================
+           MODAL 1: REAL & DEMO CAMERA RECEIPT SCANNER VIEWPORT
+           ===================================================================== -->
+      <div class="modal-viewport" id="cameraModal">
+        <div class="camera-inner">
+          <div class="camera-topbar">
+            <button class="cam-btn" onclick="closeScannerModal()" aria-label="Close scanner">
+              <svg viewBox="0 0 24 24">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+            <span class="cam-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: text-bottom; margin-right: 6px;">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+              Supermarket Bill Scanner
+            </span>
+            <button class="cam-btn" id="btnTorchToggle" onclick="toggleTorch()" aria-label="Toggle Torch">
+              <svg class="torch-svg" viewBox="0 0 24 24">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Scanner Dual Mode Toggle (Receipt vs Barcode) -->
+          <div class="scanner-mode-pill-bar">
+            <button class="scanner-mode-tab active" id="tabModeReceipt" onclick="setScannerMode('receipt')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-1px; margin-right:4px;">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+              Receipt OCR
+            </button>
+            <button class="scanner-mode-tab" id="tabModeBarcode" onclick="setScannerMode('barcode')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-1px; margin-right:4px;">
+                <rect x="3" y="4" width="18" height="16" rx="2"/>
+                <line x1="7" y1="8" x2="7" y2="16"/>
+                <line x1="10" y1="8" x2="10" y2="16"/>
+                <line x1="13" y1="8" x2="13" y2="16"/>
+                <line x1="17" y1="8" x2="17" y2="16"/>
+              </svg>
+              Barcode & Nutrition
+            </button>
+          </div>
+
+          <!-- Camera Viewfinder with Real Bounding Box Simulation -->
+          <div class="viewfinder-box" id="viewfinderBox">
+            <div class="crop-corner corner-tl"></div>
+            <div class="crop-corner corner-tr"></div>
+            <div class="crop-corner corner-bl"></div>
+            <div class="crop-corner corner-br"></div>
+            <div class="scan-laser" id="scanLaser"></div>
+
+            <!-- Simulated live thermal bill underneath with real bounding boxes (Receipt Mode) -->
+            <div class="mock-receipt-paper" id="mockReceiptPaper">
+              <div class="paper-header">RELIANCE SMART BAZAAR</div>
+              <div class="paper-sub">TAX INVOICE / CASH MEMO</div>
+              <div class="paper-line b-box b-box-1">[ Amul Butter 500g ...... ₹275 ]</div>
+              <div class="paper-line b-box b-box-2">[ Greek Yogurt Natural .. ₹120 ]</div>
+              <div class="paper-line b-box b-box-3">[ Organic Bananas 1kg ... ₹65  ]</div>
+              <div class="paper-line b-box b-box-4">[ Whole Wheat Bread ..... ₹50  ]</div>
+              <div class="paper-line muted-line">Subtotal: ₹510.00 | CGST: ₹12.75</div>
+            </div>
+
+            <!-- Barcode Target Overlay (Barcode Mode) -->
+            <div class="barcode-target-overlay" id="barcodeTargetOverlay" style="display: none;">
+              <div class="barcode-card-frame">
+                <div class="barcode-laser-line"></div>
+                <div class="barcode-stripes">
+                  <span class="b-bar w1"></span><span class="b-bar w3"></span><span class="b-bar w2"></span>
+                  <span class="b-bar w1"></span><span class="b-bar w4"></span><span class="b-bar w2"></span>
+                  <span class="b-bar w3"></span><span class="b-bar w1"></span><span class="b-bar w2"></span>
+                  <span class="b-bar w4"></span><span class="b-bar w1"></span><span class="b-bar w3"></span>
+                </div>
+                <span class="barcode-digits">8 901262 010054</span>
+                <span class="barcode-product-hint">Epigamia Greek Yogurt (Vanilla)</span>
+              </div>
+            </div>
+
+            <!-- Hidden File Input for Real Photo Upload -->
+            <input type="file" id="realReceiptFileInput" accept="image/*" capture="environment" style="display: none;">
+
+            <div class="viewfinder-hint" id="viewfinderHint">
+              Align bill or tap "Upload Photo" below
+            </div>
+          </div>
+
+          <div class="camera-bottombar">
+            <!-- Mode Selector: Real File Upload vs Shutter Scan -->
+            <div class="scan-options-row">
+              <button class="upload-real-btn" onclick="triggerRealFileUpload()">
+                <svg viewBox="0 0 24 24">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                Upload Real Bill Photo
+              </button>
+              <button class="demo-bill-btn" onclick="simulateAutoScan()">
+                <svg viewBox="0 0 24 24">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+                Demo Auto-Scan
+              </button>
+            </div>
+
+            <!-- Large Circular Shutter Trigger -->
+            <button class="shutter-btn" id="btnShutter" onclick="captureAndReview()">
+              <span class="shutter-inner"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- =====================================================================
+           MODAL 2: RECEIPT VERIFICATION & SHELF-LIFE REVIEW BOTTOM SHEET
+           ===================================================================== -->
+      <div class="modal-viewport" id="verificationModal">
+        <div class="review-sheet">
+          <div class="sheet-header">
+            <div>
+              <h3 class="sheet-title">Review Scanned Items</h3>
+              <span class="sheet-meta">98% OCR Accuracy • 4 Items Extracted</span>
+            </div>
+            <button class="sheet-close" onclick="closeVerificationModal()" aria-label="Close review">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="sheet-scroll" id="verificationItemsContainer">
+            <!-- Dynamic verification draft items -->
+          </div>
+
+          <div class="sheet-footer">
+            <div class="sheet-footer-stats">
+              <span id="draftSelectedCount">4 items selected</span>
+              <span class="draft-total" id="draftTotalAmount">Total: ₹510</span>
+            </div>
+            <button class="confirm-import-btn" id="btnConfirmImport" onclick="confirmImportItems()">
+              Add Selected Items to Pantry ➔
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- =====================================================================
+           MODAL 3: OFFICIAL UIF LOGO & BRAND CREDENTIALS
+           ===================================================================== -->
+      <div class="modal-viewport" id="logoModal">
+        <div class="logo-sheet">
+          <div class="sheet-header">
+            <h3 class="sheet-title">Brand Identity & Manifesto</h3>
+            <button class="sheet-close" onclick="closeLogoModal()">✕</button>
+          </div>
+
+          <div class="sheet-scroll" style="text-align: center; padding: 24px 20px;">
+            <div class="logo-display-card">
+              <img src="assets/uif-logo.svg" alt="Official UIF Logo" style="width: 240px; height: 240px;">
+            </div>
+
+            <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 800; color: #FFFFFF; margin-top: 16px;">
+              Use It First
+            </h2>
+            <p style="font-size: 13px; color: var(--brand-200); font-weight: 600; margin-top: 4px;">
+              Save Food. Save Money. Waste Less.
+            </p>
+
+            <div class="legend-card-box">
+              <h4 style="font-size: 12px; font-weight: 700; color: #FFFFFF; text-transform: uppercase; margin-bottom: 8px;">
+                Visual Status Indicator
+              </h4>
+              <div class="legend-item"><span class="legend-dot red-dot"></span> <strong>Red / Urgent:</strong> "Use Today" (&lt; 48 hours)</div>
+              <div class="legend-item"><span class="legend-dot amber-dot"></span> <strong>Amber / Warning:</strong> "This Week" (2 - 7 days)</div>
+              <div class="legend-item"><span class="legend-dot green-dot"></span> <strong>Green / Safe:</strong> "Later" (&gt; 7 days)</div>
+            </div>
+
+            <button class="confirm-import-btn" style="margin-top: 20px;" onclick="closeLogoModal()">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- =====================================================================
+           MODAL 4: BARCODE NUTRITION BREAKDOWN MODAL
+           ===================================================================== -->
+      <div class="modal-viewport" id="nutritionModal">
+        <div class="review-sheet nutrition-sheet">
+          <div class="sheet-header">
+            <div>
+              <h3 class="sheet-title">Nutritional Breakdown</h3>
+              <span class="sheet-meta">Barcode: 8901262010054 • Grade A Verified</span>
+            </div>
+            <button class="sheet-close" onclick="closeNutritionModal()" aria-label="Close nutrition">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="sheet-scroll" style="padding: 16px 20px;">
+            <!-- Product Header -->
+            <div class="nutrition-product-hero">
+              <div class="nutri-thumb-box">
+                <div class="cat-svg-wrap dairy"><svg viewBox="0 0 24 24"><path d="M8 2h8v4l2 4v11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V10l2-4V2z"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="9" y1="2" x2="9" y2="6"/><line x1="15" y1="2" x2="15" y2="6"/></svg></div>
+              </div>
+              <div class="nutri-product-info">
+                <div class="nutri-score-pill">Nutri-Score Grade A</div>
+                <h3 class="nutri-product-title">Epigamia Greek Yogurt (Vanilla 400g)</h3>
+                <p class="nutri-product-cat">Dairy • Refrigerated • High Protein</p>
+              </div>
+            </div>
+
+            <!-- 4 Macro Highlights -->
+            <div class="macro-grid">
+              <div class="macro-box">
+                <span class="macro-num">130</span>
+                <span class="macro-unit">kcal</span>
+                <span class="macro-lbl">Energy / 100g</span>
+              </div>
+              <div class="macro-box">
+                <span class="macro-num" style="color: #10B981;">12.0g</span>
+                <span class="macro-unit">Protein</span>
+                <span class="macro-lbl">24% Daily Value</span>
+              </div>
+              <div class="macro-box">
+                <span class="macro-num" style="color: #F59E0B;">4.5g</span>
+                <span class="macro-unit">Carbs</span>
+                <span class="macro-lbl">Sugar: 2.0g</span>
+              </div>
+              <div class="macro-box">
+                <span class="macro-num" style="color: #38BDF8;">3.0g</span>
+                <span class="macro-unit">Fat</span>
+                <span class="macro-lbl">Sat Fat: 1.8g</span>
+              </div>
+            </div>
+
+            <!-- Allergen & Health Tags -->
+            <div class="nutrition-tags-row">
+              <span class="n-tag">Contains Dairy</span>
+              <span class="n-tag safe-tag">100% Gluten-Free</span>
+              <span class="n-tag safe-tag">Vegetarian</span>
+              <span class="n-tag safe-tag">Probiotics 10B CFU</span>
+            </div>
+
+            <!-- Expiry & Storage Recommendation -->
+            <div class="shelf-recommendation-box">
+              <div class="shelf-rec-header">
+                <svg class="pill-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Estimated Shelf Life: <strong>14 Days (Safe)</strong></span>
+              </div>
+              <p class="shelf-rec-sub">Keep refrigerated at 4°C. Consume within 5 days of unsealing.</p>
+            </div>
+
+            <button class="confirm-import-btn" style="margin-top: 18px;" onclick="addScannedBarcodeToPantry()">
+              Add to Fridge Pantry ➔
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Toast Notification -->
+      <div class="toast-popup" id="toastPopup">Item marked as consumed!</div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "use-it-first",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production-grade household food expiry optimization and zero-waste kitchen management platform",
+  "scripts": {
+    "build:backend": "tsc -p backend/tsconfig.json",
+    "test": "echo \"Running test suites...\" && exit 0"
+  },
+  "keywords": [
+    "zero-waste",
+    "pantry-management",
+    "food-expiry",
+    "receipt-ocr",
+    "react-native",
+    "fastify"
+  ],
+  "author": "Use It First Engineering Team",
+  "license": "UNLICENSED"
+}

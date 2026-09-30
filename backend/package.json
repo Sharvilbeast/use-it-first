@@ -1,0 +1,23 @@
+{
+  "name": "@use-it-first/backend",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "test": "./node_modules/.bin/tsc -p tsconfig.test.json && node dist-test/tests/run-all-tests.js"
+  },
+  "dependencies": {
+    "zod": "^3.23.8",
+    "fastify": "^4.28.1",
+    "@fastify/multipart": "^8.3.0",
+    "@fastify/cors": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "typescript": "^5.6.3",
+    "ts-node": "^10.9.2"
+  }
+}

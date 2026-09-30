@@ -1,0 +1,41 @@
+appId: com.useitfirst.app
+---
+# ==============================================================================
+# E2E SCENARIO 1: RECEIPT SCANNING, PARSING & PANTRY VERIFICATION FLOW
+# ==============================================================================
+
+- launchApp
+- assertVisible: "Use It First"
+- assertVisible: "Save Food. Save Money. Waste Less."
+
+# 1. Tap Floating Action Button (+)
+- tapOn:
+    id: "Add new items to pantry"
+
+# 2. Select Camera Scan Option
+- assertVisible: "Scan Grocery Receipt"
+- tapOn: "Scan Grocery Receipt"
+
+# 3. Verify Camera Viewport Framing Overlay
+- assertVisible: "Align receipt edges within the green framing box"
+- assertVisible: "🧾 Bill & Receipt OCR"
+
+# 4. Trigger Capture Shutter
+- tapOn:
+    id: "Capture receipt image"
+
+# 5. Verify Receipt Verification Bottom Sheet
+- assertVisible: "Review Scanned Bill"
+- assertVisible: "Amul Butter 500g"
+- assertVisible: "Epigamia Greek Yogurt Natural"
+
+# 6. Confirm & Import Items to Pantry
+- tapOn: "Add 4 Items to Pantry ➔"
+- assertVisible: "Items Added!"
+- tapOn: "OK"
+
+# 7. Assert Items Populate Smart Pantry with Correct Location & Urgency Badges
+- assertVisible: "All Pantries"
+- tapOn: "Fridge"
+- assertVisible: "Amul Butter 500g"
+- assertVisible: "Fridge • Stored"

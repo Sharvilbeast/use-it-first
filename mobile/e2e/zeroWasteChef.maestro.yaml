@@ -1,0 +1,31 @@
+appId: com.useitfirst.app
+---
+# ==============================================================================
+# E2E SCENARIO 2: ZERO-WASTE CHEF RECIPE GENERATION & AUTO-CONSUMPTION FLOW
+# ==============================================================================
+
+- launchApp
+- assertVisible: "Use It First"
+
+# 1. Assert Speedometer Freshness Gauge and Urgent Banner
+- assertVisible: "Pantry Freshness Index"
+- assertVisible: "Zero-Waste Chef"
+- assertVisible: "Cook >"
+
+# 2. Tap Expiring Food Recipe Banner
+- tapOn: "Zero-Waste Chef"
+- assertVisible: "Launching AI Recipe Generator"
+- tapOn: "OK"
+
+# 3. Simulate Recipe Presentation & Cooking Mode
+- assertVisible: "Quick Rescue Palak Paneer"
+- assertVisible: "94% Waste Rescue Score"
+- assertVisible: "Fresh Spinach"
+- assertVisible: "Paneer 200g"
+
+# 4. Complete Cooking & Trigger Auto-Decrement
+- tapOn: "Mark Ingredients Consumed (1-Tap)"
+
+# 5. Assert Items Successfully Decremented from Active Pantry
+- assertNotVisible: "Fresh Farm Spinach (Palak)"
+- assertVisible: "Month Saved"
