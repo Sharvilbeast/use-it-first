@@ -46,7 +46,7 @@ async function runVerificationSuite() {
   // Test 3: RecipeGenerationService (Zero-Waste Chef)
   console.log('▶ TEST 3: RecipeGenerationService (Zero-Waste Chef)');
   const recipePayload: RecipeGenerationRequest = {
-    userId: 'user-rohan-001',
+    userId: 'user-sharvil-001',
     pantryId: 'pantry-home-001',
     expiringItems: [
       {
